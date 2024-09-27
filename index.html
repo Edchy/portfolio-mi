@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codesign</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontSize: {
+              "custom-h1": "clamp(4rem, 0.9545rem + 8.7273vw, 7.5rem)",
+              "custom-h2": "clamp(3rem, 0.9545rem + 7.7273vw, 6rem)",
+              "custom-h3": "clamp(2rem, 0.9545rem + 2.7273vw, 4rem)",
+            },
+            maxWidth: {
+              "custom-wrapper": "1200px",
+            },
+          },
+        },
+      };
+    </script>
+    <script defer src="intersectionObserver.js"></script>
+    <style type="text/tailwindcss">
+      @layer components {
+        .custom-h1 {
+          @apply text-custom-h1 leading-[.875] uppercase font-bold text-balance;
+        }
+        .custom-h2 {
+          @apply text-custom-h2 leading-[.875] font-bold text-balance;
+        }
+        .custom-h3 {
+          @apply text-custom-h3 leading-[.875] font-bold text-balance;
+        }
+        .custom-wrapper {
+          @apply max-w-custom-wrapper mx-auto;
+        }
+        .hero-span {
+          @apply uppercase leading-[.8];
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-slate-100" id="top">
+    <div class="flex flex-col md:flex-row">
+      <header>
+        <nav
+          class="relative md:h-screen md:w-24 px-2 flex sm:p-4 flex-wrap md:flex-nowrap justify-between md:justify-center md:flex-col items-center py-4"
+        >
+          <div
+            class="md:absolute md:top-8 md:left-1/2 md:-translate-x-1/2 md:w-24 md:h-24 flex items-center justify-center"
+          >
+            <span
+              class="text-2xl text-slate-900 leading-none font-bold transform md:-rotate-90"
+              ><a href="/">codesign</a></span
+            >
+          </div>
+          <menu class="flex md:-rotate-90 md:fixed">
+            <li class="md:mr-12">
+              <a class="p-4 rounded" href="#contact">Contact</a>
+            </li>
+            <li class="md:mr-12">
+              <a class="p-4 rounded" href="#work">Work</a>
+            </li>
+            <li><a class="p-4 rounded" href="#about">Me</a></li>
+          </menu>
+          <a
+            class="up-arrow transform z-10 fixed right-2 bottom-8 md:bottom-8 md:left-6 -rotate-270 w-12"
+            href="#top"
+            ><img src="./assets/img/arrow.svg" alt="arrow up"
+          /></a>
+        </nav>
+      </header>
+      <main
+        class="flex-1 border-t-4 md:border-t-0 md:border-l-4 border-slate-900"
+      >
+        <section
+          class="hero flex items-center justify-center magicpattern4 h-[80svh] md:h-[90svh] px-4"
+        >
+          <h1 class="visually-hidden">
+            Crafting digital experiences with code & design
+          </h1>
+          <div aria-hidden="true" class="grid grid-cols-6 text-slate-200">
+            <span
+              class="hero-span col-start-2 sm:col-start-3 custom-h3 pb-1 leading-[.7]"
+              >Crafting</span
+            >
+            <span class="hero-span row-start-2 sm:col-start-2 custom-h1"
+              >Digital</span
+            >
+            <span class="hero-span row-start-3 sm:col-start-2 custom-h2"
+              >experiences</span
+            >
+
+            <span
+              class="hero-span col-start-2 pt-1 sm:col-start-3 row-start-4 custom-h3"
+              >With</span
+            >
+            <div class="row-start-5 sm:col-start-3 custom-h1">
+              <span class="hero-span">co</span
+              ><span
+                class="hero-span bg-gradient-to-r from-red-500 via-orange-500 to-red-500 text-transparent bg-clip-text"
+                >de</span
+              >
+            </div>
+            <span
+              class="row-start-5 col-start-4 sm:row-start-6 sm:col-start-2 custom-h2 self-center justify-self-center"
+              >&</span
+            >
+            <div
+              class="row-start-7 sm:row-start-6 col-start-2 sm:col-start-3 custom-h1"
+            >
+              <span class="hero-span">de</span
+              ><span
+                class="hero-span bg-gradient-to-r from-red-500 via-orange-500 to-transparent text-transparent bg-clip-text"
+                >sign.</span
+              >
+            </div>
+          </div>
+        </section>
+        <section
+          id="about"
+          class="about-section text-base/7 bg-slate-900 magicpattern text-slate-100 pt-36 pb-48 px-4 sm:px-8 md:px-12"
+        >
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 sm:items-center justify-items-center sm:justify-items-start gap-12 custom-wrapper mx-auto"
+          >
+            <div class="sm:order-2">
+              <h2 class="custom-h2 sm:text-start pb-4 w-min">Hello!</h2>
+              <p
+                class="text-l sm:text-xl leading-tight px-1 mx-auto sm:mx-0 max-w-[25ch]"
+              >
+                I'm Eddie. Designer & developer, based in rainy Stockholm,
+                Sweden.
+              </p>
+            </div>
+            <figure class="justify-self-center sm:order-1">
+              <img
+                class="w-32 sm:w-44 md:w-56"
+                src="./assets/img/Pac-Man.avif"
+                alt=""
+              />
+            </figure>
+          </div>
+          <div class="grid sm:grid-cols-3 gap-12 custom-wrapper mt-12 sm:mt-48">
+            <div class="grid grid-rows-subgrid row-span-3 gap-0">
+              <h3
+                class="text-slate-500 font-mono uppercase text-xs tracking-widest"
+              >
+                001 - Intro
+              </h3>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Repudiandae et quaerat nulla quo laborum, dolores soluta
+                delectus neque magnam error!
+              </p>
+            </div>
+            <div class="grid grid-rows-subgrid row-span-3 gap-0">
+              <h3
+                class="text-slate-500 font-mono uppercase text-xs tracking-widest"
+              >
+                010 - Lorem
+              </h3>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Repudiandae et quaerat nulla quo laborum, dolores soluta
+                delectus neque magnam error!
+              </p>
+            </div>
+            <div class="grid grid-rows-subgrid row-span-3 gap-0">
+              <h3
+                class="text-slate-500 font-mono uppercase text-xs tracking-widest"
+              >
+                011 - Ipsum
+              </h3>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Repudiandae et quaerat nulla quo laborum, dolores soluta
+                delectus neque magnam error!
+              </p>
+            </div>
+          </div>
+        </section>
+        <section
+          id="work"
+          class="work-section text-base/7 bg-slate-100 text-slate-500 pt-24 pb-36 px-4 sm:px-8 md:px-12"
+        >
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 sm:items-center gap-12 custom-wrapper mx-auto"
+          >
+            <div>
+              <h2 class="custom-h2 sm:text-start pb-4">Some work.</h2>
+              <p
+                class="text-l sm:text-xl text-slate-400 leading-tight max-w-[40ch]"
+              >
+                A curated list of some of my previous endeavours. Lorem ipsum
+                dolor, sit amet consectetur adipisicing elit. Porro, eaque.
+              </p>
+            </div>
+            <figure class="justify-self-center">
+              <img
+                class="w-32 sm:w-44 md:w-56"
+                src="./assets/img/coding.avif"
+                alt=""
+              />
+            </figure>
+          </div>
+          <div
+            class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 custom-wrapper mt-48"
+          >
+            <div class="grid grid-rows-subgrid row-span-3 gap-0">
+              <h3
+                class="text-slate-400 font-mono uppercase text-xs tracking-widest"
+              >
+                001 - Some client
+              </h3>
+              <div>
+                <img class="rounded" src="assets/img/s.avif" alt="" />
+              </div>
+            </div>
+            <div class="grid grid-rows-subgrid row-span-3 gap-0">
+              <h3
+                class="text-slate-400 font-mono uppercase text-xs tracking-widest"
+              >
+                010 - Some other client
+              </h3>
+              <div>
+                <img class="rounded" src="assets/img/s.avif" alt="" />
+              </div>
+            </div>
+            <div class="grid grid-rows-subgrid row-span-3 gap-0">
+              <h3
+                class="text-slate-400 font-mono uppercase text-xs tracking-widest"
+              >
+                011 - Lorem
+              </h3>
+              <div>
+                <img class="rounded" src="assets/img/s.avif" alt="" />
+              </div>
+            </div>
+            <div class="grid grid-rows-subgrid row-span-3 gap-0">
+              <h3
+                class="text-slate-400 font-mono uppercase text-xs tracking-widest"
+              >
+                100 - Ipsum
+              </h3>
+              <div>
+                <img class="rounded" src="assets/img/s.avif" alt="" />
+              </div>
+            </div>
+            <div class="grid grid-rows-subgrid row-span-3 gap-0">
+              <h3
+                class="text-slate-400 font-mono uppercase text-xs tracking-widest"
+              >
+                101 - Dolor
+              </h3>
+              <div>
+                <img class="rounded" src="assets/img/s.avif" alt="" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer
+          id="contact"
+          class="contact-section flex items-center justify-center flex-col pt-52 px-4 text-slate-500 bg-slate-900"
+        >
+          <section class="px-8">
+            <h2 class="custom-h2 pb-4 text-center sm:text-start">
+              Get in touch
+            </h2>
+            <p class="max-w-[60ch] pb-6 text-slate-400">
+              Have a project in mind? Or need help with ideas? Let’s co-design &
+              collaborate! Reach out for custom web solutions and creative
+              design.
+            </p>
+            <a
+              class="font-bold block text-center"
+              href="mailto:eddie@codesign.com"
+              >eddie@codesign.com</a
+            >
+          </section>
+          <section class="flex gap-12 justify-center pt-32 pb-12">
+            <figure>
+              <a href="#">
+                <img
+                  class="w-8 sm:w-10 md:w-12"
+                  src="./assets/img/socials/LinkedIn.avif"
+                  alt="LinkedIn icon"
+                />
+              </a>
+            </figure>
+            <figure>
+              <a href="#">
+                <img
+                  class="w-8 sm:w-10 md:w-12"
+                  src="./assets/img/socials/Instagram.avif"
+                  alt="Instagram icon"
+                />
+              </a>
+            </figure>
+            <figure>
+              <a href="#">
+                <img
+                  class="w-8 sm:w-10 md:w-12"
+                  src="./assets/img/socials/Twitter.avif"
+                  alt="Twitter icon"
+                />
+              </a>
+            </figure>
+          </section>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
